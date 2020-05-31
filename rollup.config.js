@@ -10,11 +10,11 @@ module.exports = {
   input: 'src/simple-dom-transmitter.js',
   output: [
     {
-      file: 'dist/simple-dom-transmitter.cjs.js',
+      file: 'dist/simple-dom-transmitter.cjs.min.js',
       format: 'cjs'
     },
     {
-      file: 'dist/simple-dom-transmitter.umd.js',
+      file: 'dist/simple-dom-transmitter.umd.min.js',
       format: 'umd',
       name: 'SimpleDOMTransmitter'
     }
