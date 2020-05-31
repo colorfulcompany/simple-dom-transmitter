@@ -1,0 +1,38 @@
+#header .nav {
+  display: block;
+  box-shadow: 0 10px 10px  #cccccc;
+}
+#header .nav ul {
+  display: flex;
+}
+#header .nav li {
+  display: inline;
+  padding: 0 0.2rem;
+}
+#header picture {
+  display: block;
+  text-align: center;
+}
+#header picture img {
+  width: 80%;
+  border: 1px solid;
+  border-radius: 2px;
+}
+article {
+  height: 50rem;
+  background: #f0f0f0;
+}
+#footer .button-container {
+  position: fixed;
+  bottom: 0.1em;
+  right: 0.2em;
+  text-align: right;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0;
+}
+#footer .button-container button {
+  background: #cccccc;
+  font-size: 150%;
+  margin: 0;
+}

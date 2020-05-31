@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script type="text/javascript" src="../dist/simple-dom-transmitter.umd.js"></script>
+    <script type="text/javascript">
+      var NavbarEventBindToButton = SimpleDOMTransmitter.extend(function (NavbarEventBindToButton) {
+        function NavbarEventBindToButton ({ src, target }) {
+          SimpleDOMTransmitter.call(this, { src, target })
+        }
+        SimpleDOMTransmitter.bless(NavbarEventBindToButton)
+        NavbarEventBindToButton.prototype.process = function () {
+          var self = this
+          new Waypoint({
+            element: this.src,
+            handler: function (direction) {
+              if (direction == 'down') {
+                self.target.dispatchEvent(new Event('nav-has-gone'))
+              } else {
+                self.target.dispatchEvent(new Event('nav-is-back'))
+              }
+            }
+          })
+        }
+
+        return NavbarEventBindToButton
+      })
+
+      var HideBackButton = SimpleDOMTransmitter.extend(function (HideBackButton) {
+        function HideBackButton ({ src, target }) {
+          SimpleDOMTransmitter.call(this, { src, target })
+        }
+        SimpleDOMTransmitter.bless(HideBackButton)
+        function hide () {
+          this.target.style.display = 'none'
+        }
+        HideBackButton.prototype.process = hide
+        HideBackButton.prototype.handler = hide
+
+        return HideBackButton
+      })
+      
+      var ShowBackButton = SimpleDOMTransmitter.extend(function (ShowBackButton) {
+        function ShowBackButton ({ src, target }) {
+          SimpleDOMTransmitter.call(this, { src, target })
+        }
+        SimpleDOMTransmitter.bless(ShowBackButton)
+        ShowBackButton.prototype.handler = function (event) {
+          this.target.style.display = 'block'
+        }
+
+        return ShowBackButton
+      })
+
+      var BacktoTop = SimpleDOMTransmitter.extend(function (BacktoTop) {
+        function BacktoTop ({ src, target }) {
+          SimpleDOMTransmitter.call(this, { src, target })
+        }
+        SimpleDOMTransmitter.bless(BacktoTop)
+        function handler (event) {
+          this.target.scrollTo(0, 0)
+        }
+        BacktoTop.prototype.handler = handler
+
+        return BacktoTop
+      })
+    </script>
+    <title>ナビゲーションが隠れたら下にボタンが出るデモ（ES5版）</title>
+  </head>
+  <body>
+    <section id="header">
+      <div class="nav">
+        <ul>
+          <li>ナビ</li>
+          <li>ゲー</li>
+          <li>ション</li>
+          <li>とか</li>
+        </ul>
+      </div>
+      <section class="eyecatch">
+        <h1>ナビゲーションが隠れたら下に戻るボタンが出るデモ（ES5版）</h1>
+        <picture>
+          <img src="./spacer.png" width="80%" height="300" alt="アイキャッチ画像">
+        </picture>
+      </section>
+    </section>
+    <article>
+      <p>本文的ななにか</p>
+    </article>
+    <section id="footer">
+      <p>copyrightとか</p>
+      <div class="button-container">
+        <button id="back-top-top"> ^ </button>
+      </div>
+    </section>
+    <script type="text/javascript">
+      var backBtn = document.querySelector('#back-top-top')
+      var navBar = document.querySelector('.nav')
+
+      NavbarEventBindToButton.run({ src: navBar, target: backBtn })
+      HideBackButton.run({ src: backBtn })
+      HideBackButton.listen({ on: 'nav-is-back', src: backBtn })
+      ShowBackButton.listen({ on: 'nav-has-gone', src: backBtn })
+      BacktoTop.listen({ on: 'click', src: backBtn, target: window })
+    </script>
+  </body>
+</html>
