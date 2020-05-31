@@ -53,6 +53,28 @@ class SimpleDOMTransmitter {
   }
 
   /**
+   * @param {Function} callback
+   * @return {object}
+   */
+  static extend (callback) {
+    return callback.call(this)
+  }
+
+  /**
+   * @param {object} child
+   * @return {object}
+   */
+  static bless (child) {
+    child.prototype = Object.create(this.prototype)
+    child.prototype.constructor = child
+    child.init = this.init
+    child.listen = this.listen
+    child.run = this.run
+
+    return child
+  }
+
+  /**
    * @param {object} args
    * @param {object} args.src
    * @param {object} args.target
