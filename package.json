@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "A simple pattern for conveying events from one DOM element to the other",
   "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "test": "jest",
     "make": "npm-run-all clean build",
