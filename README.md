@@ -15,13 +15,6 @@ A simple pattern for conveying events from one DOM element to the other
  * コード読み込み後すぐに動かしたいものは process() に定義して .run() で呼び出す
  * なんらかのイベントを待ちたい時は handler() に定義して .listen() で呼び出す
 
-## デモの動かし方
-
- * git clone
- * yarn install
- * yarn run build
- * open examples/index.html
-
 ## 具体的なコード例
 
 以下のような「処理対象」と「イベント」と「処理内容」が密結合したコードをやめて、
@@ -66,6 +59,13 @@ class HideBackButton extends SimpleDOMTransmitter {
 ## デモ
 
 <a href="./examples/">ナビゲーションが隠れたら下に戻るボタンが出るデモ</a>
+
+### デモの動かし方
+
+ * git clone
+ * yarn install
+ * yarn run build
+ * open examples/index.html
 
 ## 達成したいこと
 
