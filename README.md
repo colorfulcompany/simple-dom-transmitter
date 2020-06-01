@@ -58,9 +58,9 @@ class HideBackButton extends SimpleDOMTransmitter {
 
 ## デモ
 
-<a href="./examples/">ナビゲーションが隠れたら下に戻るボタンが出るデモ</a>
+[simple\-dom\-transmitter\-demo\-es6 \- Plunker](https://embed.plnkr.co/plunk/eyxEK7mkrdOQP0VB)
 
-### デモの動かし方
+### 手元でのデモの動かし方
 
  * git clone
  * yarn install
