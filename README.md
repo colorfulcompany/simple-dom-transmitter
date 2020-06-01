@@ -12,6 +12,15 @@ A simple pattern for conveying events from one DOM element to the other
  * 継承した class に process() と handler() を定義して処理を記述する
  * 継承した class の run() と listen() を使って処理を開始する
     * 処理対象の要素はこれらのメソッドに src, target として与える
+ * コード読み込み後すぐに動かしたいものは process() に定義して .run() で呼び出す
+ * なんらかのイベントを待ちたい時は handler() に定義して .listen() で呼び出す
+
+## デモの動かし方
+
+ * git clone
+ * yarn install
+ * yarn run build
+ * open examples/index.html
 
 ## 具体的なコード例
 
