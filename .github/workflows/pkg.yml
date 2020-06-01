@@ -1,0 +1,31 @@
+name: pkg
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  package:
+    steps:
+      - uses: actions/checkout@v2
+      - name: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: set version
+        id: version
+        run: wcho ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: install yarn
+        run: npm install -g yarn
+      - name: install npms /w yarn
+        run: yarn install
+      - name: clean & build
+        run: yarn run make
+      - name: package
+        run: npm pack
+      - name: publish
+        env:
+          GITHUB_PACKAGE_USERNAME: colorfulcompany
+          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PUBLISH_VERSION: ${{ steps.version.outpus.VERSION }}
+        run: npm publish
