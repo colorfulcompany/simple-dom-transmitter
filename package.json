@@ -13,6 +13,7 @@
     "make": "npm-run-all clean build",
     "clean": "rimraf dist/* README.html",
     "build": "rollup -c",
+    "pack": "npm pack",
     "lint": "eslint --ignore-pattern dist/ .",
     "prepublishOnly": "npm-run-all lint test make pack"
   },
