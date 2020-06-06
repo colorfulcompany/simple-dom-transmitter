@@ -13,7 +13,8 @@
     "make": "npm-run-all clean build",
     "clean": "rimraf dist/* README.html",
     "build": "rollup -c",
-    "lint": "eslint --ignore-pattern dist/ ."
+    "lint": "eslint --ignore-pattern dist/ .",
+    "prepublishOnly": "npm-run-all lint test make pack"
   },
   "license": "BSD-2-Clause",
   "devDependencies": {
