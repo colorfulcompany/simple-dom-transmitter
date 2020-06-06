@@ -4,9 +4,6 @@
   "description": "A simple pattern for conveying events from one DOM element to the other",
   "main": "src/simple-dom-transmitter.js",
   "author": "Colorful Company, Inc.",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/colorfulcompany/simple-dom-transmitter"

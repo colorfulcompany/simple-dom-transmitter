@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+          registry-url: https://registry.npmjs.org
       - name: set version
         id: version
         run: wcho ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -26,7 +27,5 @@ jobs:
         run: npm pack
       - name: publish
         env:
-          GITHUB_PACKAGE_USERNAME: colorfulcompany
-          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_PUBLISH_VERSION: ${{ steps.version.outpus.VERSION }}
+          NPM_AUTH_TOKEN: ${{ secrets.CC_NPM_MANAGER_TOKEN }}
         run: npm publish
