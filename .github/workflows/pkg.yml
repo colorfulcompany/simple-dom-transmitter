@@ -27,4 +27,4 @@ jobs:
       - name: publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.CC_NPM_MANAGER_TOKEN }}
-        run: npm publish
+        run: npm publish --access public
