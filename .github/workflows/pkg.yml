@@ -16,9 +16,6 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: https://registry.npmjs.org
-      - name: set version
-        id: version
-        run: wcho ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: install yarn
         run: npm install -g yarn
       - name: install npms /w yarn
@@ -30,4 +27,4 @@ jobs:
       - name: publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.CC_NPM_MANAGER_TOKEN }}
-        run: npm publish
+        run: npm publish --access public
