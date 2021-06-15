@@ -6,6 +6,9 @@ on:
       - master
       - 'releases/*'
       - 'pull-req/*'
+  workflow_dispatch:
+    branches:
+      - '*'
 
 jobs:
   build:
