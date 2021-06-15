@@ -6,6 +6,7 @@ on:
       - master
       - 'releases/*'
       - 'pull-req/*'
+      - 'dependabot/*'
   workflow_dispatch:
     branches:
       - '*'
