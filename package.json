@@ -1,6 +1,6 @@
 {
   "name": "@colorfulcompany/simple-dom-transmitter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple pattern for conveying events from one DOM element to the other",
   "main": "src/simple-dom-transmitter.js",
   "author": "Colorful Company, Inc.",
