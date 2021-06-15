@@ -3,9 +3,18 @@ name: test
 on:
   push:
     branches:
-      - master
       - 'releases/*'
       - 'pull-req/*'
+      - 'dependabot/*'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+  workflow_dispatch:
+    branches:
+      - '*'
 
 jobs:
   build:
